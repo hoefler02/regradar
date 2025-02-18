@@ -1,11 +1,15 @@
 from langchain_openai import OpenAIEmbeddings
+from dotenv import load_dotenv
+import os
 
-api_key = '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'
+load_dotenv()
+
+API_KEY = os.getenv('API_KEY')
 
 def get_embedding_function():
     embeddings = OpenAIEmbeddings(
         model="text-embedding-3-large",
-        api_key=api_key
+        api_key=API_KEY
         # With the `text-embedding-3` class
         # of models, you can specify the size
         # of the embeddings you want returned.
